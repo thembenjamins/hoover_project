@@ -66,7 +66,7 @@ navigateRoom(mapSize, startingPosition, arrayOfDirt, directions);
 
 ///////////////////////////////////////////////
 // The navigate room function loops through each of the directions
-// to get the number of pieces od dirt as well as the ending position
+// to get the number of pieces of dirt as well as the final position.
 //
 // params
 // mapSize           = Size of the Room '5 5'
@@ -79,12 +79,14 @@ function navigateRoom(mapSize, startingPosition, arrayOfDirt, directions) {
     var dirtPickedUp = [];
     //console.log("Starting Position: " + currentPosition);
     for (var i = 0; i < directions.length; i++) {
-        //Get the direction and make it upppercase if the input data is lowercase
+        //Get the direction and make it upppercase
         var direction = directions[i].toUpperCase();
         //console.log("Direction: "+direction);
         newPosition = updateCurrentPosition(mapSize, direction, currentPosition);
         //console.log("New Position: " + newPosition);
         currentPosition = newPosition;
+
+        //Check if roomba is on piece of dirt. If so add to array.
         if (arrayOfDirt.indexOf(currentPosition) > -1) {
             //Add Dirt Picked up to Array
             dirtPickedUp.push(currentPosition);
@@ -103,6 +105,7 @@ function navigateRoom(mapSize, startingPosition, arrayOfDirt, directions) {
             uniqueListOfDirt.push(dirtPickedUp[i]);
         }
     }
+    //Get length of unique pieces of dirt. This is the # of pieces of dirt that was collected.
     var numPiecesOfDirt = uniqueListOfDirt.length;
     //console.log("Final Pieces of Dirt:")
     console.log(numPiecesOfDirt);
