@@ -14,13 +14,15 @@ Additional details are outlined here - https://gist.github.com/alirussell/2d200d
 
 4. Run the following command:  node roomba.js
 
-![Screen Shot 2021-07-07 at 9 16 20 PM](https://user-images.githubusercontent.com/7964638/124847327-9e475580-df68-11eb-95a5-72772afdabf7.png)
 
 5. Click Enter and the code will execute and log the following:
+
+![Screen Shot 2021-07-08 at 7 53 05 AM](https://user-images.githubusercontent.com/7964638/124917280-9c5db080-dfc1-11eb-9c91-2ba9cfccc3a8.png)
+
 1 3  = Ending Position of the Roomba
+
 1    = Number of unique pieces of dirt picked up
 
-![Screen Shot 2021-07-07 at 9 17 40 PM](https://user-images.githubusercontent.com/7964638/124847410-ccc53080-df68-11eb-99ba-7f0bc315bb1b.png)
 
 
 # How to Change Input Commands
