@@ -1,6 +1,6 @@
 # Hoover Project
 
-This Project solves a challenge where there is a Grid which represents a room. Imagine you are a roomba and are given instructions to move throughout a room. Throughout the room there are pieces of dirt and if the instructions given to the roomba run over a piece of dirt it will be counted towards your dirt pickup count.  The Goal of this challenge is to use the commands given to the Roomba to move throughout the room and based upon those commands log the number of pieces of dirt picked up as well as the final postion of the roomba.
+This Project solves the classic roomba challenge. Imagine you are a roomba and are given instructions to move throughout a room. Throughout the room there are pieces of dirt and a set of instrructions on how to move around the room one position at a time. The Goal of this challenge is to use the commands given to the Roomba to move throughout the room and based upon those commands log the number of pieces of dirt picked up as well as the final postion of the roomba.
 
 Additional details are outlined here - https://gist.github.com/alirussell/2d200d21f117f8d570667daa7acdbae5#https://gist.github.com/alirussell/2d200d21f117f8d570667daa7acdbae5
 
