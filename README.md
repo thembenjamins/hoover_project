@@ -27,6 +27,7 @@ Additional details are outlined here - https://gist.github.com/alirussell/2d200d
 The Input commands given are in the input.txt file located in the same project as roomba.js
 
 Here is an example of the text file contents
+
 ![Screen Shot 2021-07-07 at 9 25 39 PM](https://user-images.githubusercontent.com/7964638/124847955-e9ae3380-df69-11eb-8847-1d47a8e4d6c6.png)
 
 - The 1st line in the max grid dimensions
