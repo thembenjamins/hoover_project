@@ -22,15 +22,15 @@ try {
 var inputDataArray = inputData.split('\n').map(function(ln) {
     return ln.split('\t');
 });
-console.log("Data Array: " + inputDataArray);
+//console.log("Data Array: " + inputDataArray);
 
 //Hoover Map Size. Get the first object in the array.
 var mapSize = inputDataArray[0][0].toString();
-console.log("Map Size: " + mapSize);
+//console.log("Map Size: " + mapSize);
 
 //Hoover Starting Position. Get the 2nd object which is the starting position.
 var startingPosition = inputDataArray[1][0].toString();
-console.log(startingPosition);
+//console.log(startingPosition);
 
 //Array of Dirt patches. Get the array of dirt patches
 var arrayOfDirt = [];
@@ -38,14 +38,14 @@ var arrayOfDirt = [];
 for (var i = 2; i < inputDataArray.length - 1; i++) {
     arrayOfDirt.push(inputDataArray[i].toString());
 }
-console.log("Array of Dirt Patches");
-console.log(arrayOfDirt);
+//console.log("Array of Dirt Patches");
+//console.log(arrayOfDirt);
 
 
 //Get the finalObject in the array. This is the directions NNESEESWNWW
 var directions = inputDataArray[inputDataArray.length - 1].toString();
 directions = directions.match(/.{1}/g);
-console.log("Directions: " + directions);
+//console.log("Directions: " + directions);
 
 
 
@@ -56,7 +56,7 @@ console.log("Directions: " + directions);
 // 1,6
 // 3
 ////////////
-navigateRoom(inputDataArray, mapSize, startingPosition, arrayOfDirt, directions);
+navigateRoom(mapSize, startingPosition, arrayOfDirt, directions);
 
 
 } catch (e) {
@@ -65,18 +65,25 @@ navigateRoom(inputDataArray, mapSize, startingPosition, arrayOfDirt, directions)
 
 
 ///////////////////////////////////////////////
+// The navigate room function loops through each of the directions
+// to get the number of pieces od dirt as well as the ending position
 //
+// params
+// mapSize           = Size of the Room '5 5'
+// startingPosition  = X Y of the starting hoover position   '1 2'
+// arrayOfDirt       = X Y Array of the dirt placed around the Room  '1 3','2 4'....
+// directions        = Array of directions to loop through 'N','N','S'......
 ///////////////////////////////////////////////
-function navigateRoom(inputDataArray, mapSize, startingPosition, arrayOfDirt, directions) {
+function navigateRoom(mapSize, startingPosition, arrayOfDirt, directions) {
     var currentPosition = startingPosition;
     var dirtPickedUp = [];
-    console.log("Starting Position: " + currentPosition);
+    //console.log("Starting Position: " + currentPosition);
     for (var i = 0; i < directions.length; i++) {
         //Get the direction and make it upppercase if the input data is lowercase
         var direction = directions[i].toUpperCase();
-        console.log("Direction: "+direction);
+        //console.log("Direction: "+direction);
         newPosition = updateCurrentPosition(mapSize, direction, currentPosition);
-        console.log("New Position: " + newPosition);
+        //console.log("New Position: " + newPosition);
         currentPosition = newPosition;
         if (arrayOfDirt.indexOf(currentPosition) > -1) {
             //Add Dirt Picked up to Array
@@ -85,7 +92,8 @@ function navigateRoom(inputDataArray, mapSize, startingPosition, arrayOfDirt, di
 
 
     }
-    console.log("Final Position: " + currentPosition);
+    //console.log("Final Position");
+    console.log(currentPosition);
 
     //Get Unique Pieces of Dirt Picked Up
     var uniqueListOfDirt = [];
@@ -96,7 +104,8 @@ function navigateRoom(inputDataArray, mapSize, startingPosition, arrayOfDirt, di
         }
     }
     var numPiecesOfDirt = uniqueListOfDirt.length;
-    console.log("Pieces of Dirt Picked Up: " + numPiecesOfDirt);
+    //console.log("Final Pieces of Dirt:")
+    console.log(numPiecesOfDirt);
 
 
 
@@ -105,8 +114,8 @@ function navigateRoom(inputDataArray, mapSize, startingPosition, arrayOfDirt, di
 
 
 ////////////////////////////////////////////////////////
-// This function takes in 3 params and
-// updates the current position and returns the result.
+// This functions purpose is to update the current position of the Hoover
+// It takes in 3 params and returns the final position.
 //
 // Params
 // mapSize = the 1st row in the text file.
@@ -143,10 +152,11 @@ function updateCurrentPosition(mapSize, direction, currentPosition) {
     } else if (posY < minMapSize) {
         posY = minMapSize;
     } else if (posX > maxMapSize) {
-        posX = mapMapSize;
+        posX = maxMapSize;
     } else if (posX < minMapSize) {
         posX = minMapSize;
     }
+    //Finalize New Position
     newPosition = posX + " " + posY;
 
 
